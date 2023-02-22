@@ -1,3 +1,23 @@
-.hello {
-    color: red;
+body {
+  text-align: center;
+  font-size: 25px;
+  padding: 0;
+  margin: 0;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border: 1px solid goldenrod;
   }
+
+.todo-el {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.todo-el input[type="checkbox"] {
+  transform: scale(2);
+}

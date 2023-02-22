@@ -1,14 +1,35 @@
-import _ from 'lodash';
-import './style.css';
+import "./style.css";
 
-function component() {
-  const element = document.createElement('div');
+const todos = [
+  {
+    description: "mopping",
+    completed: true,
+    index: 3,
+  },
+  {
+    description: "clean windows",
+    completed: true,
+    index: 2,
+  },
+  {
+    description: "laundry",
+    completed: false,
+    index: 1,
+  },
+];
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack', 'Vangelis'], ' ');
-  element.classList.add('hello');
+const todoList = () => {
+  const container = document.getElementById("container");
+  todos.sort((a, b) => a.index - b.index);
+  for (let i = 0; i < todos.length; i += 1) {
+    const task = document.createElement("div");
+    task.classList.add("todo-el");
+    task.innerHTML = `
+    <input type="checkbox">
+    <p>${todos[i].description}</p>
+    `;
+    container.appendChild(task);
+  }
+};
 
-  return element;
-}
-
-document.body.appendChild(component());
+todoList();
