@@ -4,6 +4,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: bisque;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .box {
@@ -11,12 +12,17 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  border: 1px solid goldenrod;
   background-color: white;
+  font-weight: 800;
 }
 
 .box span > i {
   font-size: 20px;
+  margin: 2%;
+  cursor: pointer;
+}
+.insert-form {
+  margin: 2%;
 }
 
 .insert-form > input {
@@ -30,6 +36,7 @@ body {
   font-size: 20px;
   background-color: transparent;
   margin: 0;
+  cursor: pointer;
 }
 
 .todo-el {
@@ -40,7 +47,8 @@ body {
 }
 
 .todo-el input[type="checkbox"] {
-  transform: scale(2);
+  transform: scale(1.8);
+  cursor: pointer;
 }
 
 .todo-el p {
@@ -61,4 +69,7 @@ body {
   margin: 0;
   padding: 2% 30%;
   font-size: 20px;
+  cursor: pointer;
+  font-weight: 600;
 }
+
