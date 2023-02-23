@@ -38,4 +38,6 @@ const todoList = () => {
     }
   });
 };
-todoList();
+document.addEventListener('DOMContentLoaded', () => {
+  todoList();
+});
