@@ -1,0 +1,64 @@
+body {
+  text-align: center;
+  font-size: 22px;
+  padding: 0;
+  margin: 0;
+  background-color: bisque;
+}
+
+.box {
+  margin: 12% 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid goldenrod;
+  background-color: white;
+}
+
+.box span > i {
+  font-size: 20px;
+}
+
+.insert-form > input {
+  width: 30%;
+  height: 100%;
+}
+
+.insert-form > button {
+  width: 5%;
+  height: 125%;
+  font-size: 20px;
+  background-color: transparent;
+  margin: 0;
+}
+
+.todo-el {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-el input[type="checkbox"] {
+  transform: scale(2);
+}
+
+.todo-el p {
+  width: 15%;
+  text-align: left;
+}
+
+.completed p {
+  text-decoration: line-through;
+}
+
+.eraser {
+  margin: 2% 2%;
+}
+
+.eraser > button {
+  background-color: transparent;
+  margin: 0;
+  padding: 2% 30%;
+  font-size: 20px;
+}
