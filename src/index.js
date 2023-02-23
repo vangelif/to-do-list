@@ -1,37 +1,38 @@
 import './style.css';
 
-const todos = [
-  {
-    description: 'mopping',
-    completed: true,
-    index: 3,
-  },
-  {
-    description: 'clean windows',
-    completed: true,
-    index: 2,
-  },
-  {
-    description: 'laundry',
-    completed: false,
-    index: 1,
-  },
-];
+const itemValue = document.getElementById('insertTask');
+const itemsDisplay = document.getElementById('container');
+const addItemBtn = document.getElementById('addBtn');
 
-const todoList = () => {
-  const container = document.getElementById('container');
-  todos.sort((a, b) => a.index - b.index);
-  for (let i = 0; i < todos.length; i += 1) {
+let todos = [];
+
+const display = () => {
+  itemsDisplay.innerHTML = '';
+  todos = JSON.parse(localStorage.getItem('storage-task')) || [];
+  todos.forEach((element) => {
     const task = document.createElement('div');
     task.classList.add('todo-el');
     task.innerHTML = `
     <input type='checkbox'>
-    <p>${todos[i].description}</p>
+    <p>${element.description}</p>
+    <span>
+      <i id='${element.index}' class='fa-solid fa-trash-can'></i>
+    </span>
     `;
-    container.appendChild(task);
-  }
+    itemsDisplay.appendChild(task);
 
-  container.addEventListener('change', (event) => {
+    const todo2 = task.children[1];
+    todo2.addEventListener('change', () => {
+      const listingData = document.getElementById('container');
+      const arrayList = Array.from(listingData.children);
+      const index = arrayList.indexOf(task);
+      const taskLocal = JSON.parse(localStorage.getItem('storage-task'));
+      taskLocal[index].description = todo2.value;
+      localStorage.setItem('localItem', JSON.stringify(taskLocal));
+    });
+  });
+  // line-through
+  itemsDisplay.addEventListener('change', (event) => {
     if (event.target.type === 'checkbox') {
       const task = event.target.closest('.todo-el');
       task.classList.toggle('completed');
@@ -39,5 +40,23 @@ const todoList = () => {
   });
 };
 document.addEventListener('DOMContentLoaded', () => {
-  todoList();
+  display();
+});
+
+addItemBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (itemValue.value === '') return;
+  todos = JSON.parse(localStorage.getItem('storage-task')) || [];
+
+  const todoObj = {
+    completed: false,
+    description: itemValue.value,
+    index: todos.length + 1,
+  };
+
+  todos.push(todoObj);
+  localStorage.setItem('storage-task', JSON.stringify(todos));
+
+  itemValue.value = '';
+  display();
 });
