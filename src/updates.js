@@ -1,4 +1,4 @@
-export const completion = (e) => {
+const completion = (e) => {
   const tick = e.target.closest('.tick');
   if (!tick) return;
 
@@ -8,3 +8,5 @@ export const completion = (e) => {
   matchIndex.completed = !matchIndex.completed;
   localStorage.setItem('storage-task', JSON.stringify(task));
 };
+
+export default completion;

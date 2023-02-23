@@ -1,4 +1,4 @@
-import { completion } from './updates.js';
+import completion from './updates.js';
 
 const itemValue = document.getElementById('insertTask');
 const itemsDisplay = document.getElementById('container');
