@@ -1,3 +1,5 @@
+import { completion } from './updates.js';
+
 const itemValue = document.getElementById('insertTask');
 const itemsDisplay = document.getElementById('container');
 const addItemBtn = document.getElementById('addBtn');
@@ -14,7 +16,7 @@ const display = () => {
     const task = document.createElement('div');
     task.classList.add('todo-el');
     task.innerHTML = `
-    <input type='checkbox'>
+    <input class='tick' type='checkbox' data-set='${element.index}'>
     <p>${element.description}</p>
     <span>
       <i id='${element.index}' class='fa-solid fa-trash-can'></i>
@@ -89,7 +91,7 @@ itemsDisplay.addEventListener('click', (e) => {
 
 // clear all tasks
 const eraseAll = () => {
-  todos.length = 0;
+  todos = todos.filter((todo) => !todo.completed);
   localStorage.removeItem('storage-task');
   display();
 };
@@ -97,3 +99,6 @@ const eraseAll = () => {
 eraseAllBtn.addEventListener('click', () => {
   eraseAll();
 });
+
+// toggles completion status and updates storage
+document.addEventListener('change', completion);
