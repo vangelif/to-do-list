@@ -30,6 +30,13 @@ const todoList = () => {
     `;
     container.appendChild(task);
   }
-};
 
+  container.addEventListener("change", (event) => {
+    if (event.target.type === "checkbox") {
+      const task = event.target.closest(".todo-el");
+      task.classList.toggle("completed");
+    }
+  });
+};
 todoList();
+
