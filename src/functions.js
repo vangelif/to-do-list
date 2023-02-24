@@ -16,7 +16,9 @@ const display = () => {
     const task = document.createElement('div');
     task.classList.add('todo-el');
     task.innerHTML = `
-    <input class='tick' type='checkbox' data-set='${element.index}'>
+    <input class='tick' type='checkbox' data-set='${element.index}' ${
+  element.completed ? 'checked' : ''
+}>
     <p>${element.description}</p>
     <span>
       <i id='${element.index}' class='fa-solid fa-trash-can'></i>
@@ -89,10 +91,12 @@ itemsDisplay.addEventListener('click', (e) => {
   }
 });
 
-// clear all tasks
+// clear all completed tasks
 const eraseAll = () => {
-  todos = todos.filter((todo) => !todo.completed);
+  const task = JSON.parse(localStorage.getItem('storage-task')) || [];
+  const notDone = task.filter((todo) => !todo.completed);
   localStorage.removeItem('storage-task');
+  localStorage.setItem('storage-task', JSON.stringify(notDone));
   display();
 };
 
