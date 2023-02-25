@@ -1,11 +1,11 @@
 import completion from './updates.js';
-
-const itemValue = document.getElementById('insertTask');
-const itemsDisplay = document.getElementById('container');
-const addItemBtn = document.getElementById('addBtn');
-
-const syncBtn = document.getElementById('syncBtn');
-const eraseAllBtn = document.querySelector('.eraser');
+import {
+  itemValue,
+  itemsDisplay,
+  addItemBtn,
+  syncBtn,
+  eraseAllBtn,
+} from './variables.js';
 
 let todos = [];
 
