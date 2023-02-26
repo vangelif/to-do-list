@@ -15,6 +15,7 @@ const display = () => {
   todos.forEach((element) => {
     const task = document.createElement('div');
     task.classList.add('todo-el');
+    task.draggable = true;
     task.innerHTML = `
     <input class='tick' type='checkbox' data-set='${element.index}' ${
   element.completed ? 'checked' : ''
@@ -106,3 +107,38 @@ eraseAllBtn.addEventListener('click', () => {
 
 // toggles completion status and updates storage
 document.addEventListener('change', completion);
+
+const dragStart = (event) => {
+  const task = event.target.closest('.todo-el');
+  task.classList.add('dragging');
+  event.dataTransfer.setData('text/plain', task.dataset.index);
+};
+
+const dragOver = (event) => {
+  event.preventDefault();
+  const task = event.target.closest('.todo-el');
+  task.classList.add('dragover');
+};
+
+const dragDrop = (event) => {
+  event.preventDefault();
+  const sourceIndex = event.dataTransfer.getData('text/plain');
+  const targetIndex = event.target.closest('.todo-el').dataset.index;
+  const sourceTask = todos.find((task) => task.index === sourceIndex);
+  const targetTask = todos.find((task) => task.index === targetIndex);
+  const sourceOrder = sourceTask.index;
+  sourceTask.index = targetTask.index;
+  targetTask.index = sourceOrder;
+  localStorage.setItem('storage-task', JSON.stringify(todos));
+  display();
+};
+
+const dragEnd = (event) => {
+  const task = event.target.closest('.todo-el');
+  task.classList.remove('dragging', 'dragover');
+};
+
+itemsDisplay.addEventListener('dragstart', dragStart);
+itemsDisplay.addEventListener('dragover', dragOver);
+itemsDisplay.addEventListener('drop', dragDrop);
+itemsDisplay.addEventListener('dragend', dragEnd);
