@@ -15,4 +15,4 @@ const addTodo = () => {
   display();
 };
 
-export default addTodo;
+module.exports = addTodo;
