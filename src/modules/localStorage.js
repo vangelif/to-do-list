@@ -7,3 +7,5 @@ export const getFromStorage = () => {
 export const saveToStorage = (data) => {
   localStorage.setItem('storage-task', JSON.stringify(data));
 };
+
+module.exports = { getFromStorage, saveToStorage };

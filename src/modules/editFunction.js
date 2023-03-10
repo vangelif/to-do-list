@@ -3,4 +3,4 @@ const editNewTodos = (todos, index, newItemValue) => {
   return todos;
 };
 
-export default editNewTodos;
+module.exports = editNewTodos;
