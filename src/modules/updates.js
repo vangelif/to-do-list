@@ -7,4 +7,4 @@ const completedTasks = (index, tasks) => {
   return updatedCheckbox;
 };
 
-export default completedTasks;
+module.exports = completedTasks;
