@@ -9,7 +9,7 @@ describe('tasksCompleted', () => {
     ];
 
     const newTodo = completedTasks(3 - 1, oldTodo);
-   
+
     expect(newTodo).toEqual([
       { itemValue: 'project task', completed: true, index: 1 },
       { itemValue: 'html project', completed: true, index: 2 },

@@ -1,6 +1,5 @@
 const clearAllCompleted = require('../modules/clearAllCompleted.js');
 
-
 const usedTodo = [
   { itemValue: 'cooking', completed: true, index: 1 },
   { itemValue: 'moping', completed: true, index: 2 },
@@ -12,9 +11,9 @@ const leftTodo = [
 ];
 
 describe('Clear All the tasks which are completed in To-Do List', () => {
-    test('Remove All the Completed ToDo items', () => {
-      expect(
-        clearAllCompleted(usedTodo),
-      ).toEqual(leftTodo);
-    });
+  test('Remove All the Completed ToDo items', () => {
+    expect(
+      clearAllCompleted(usedTodo),
+    ).toEqual(leftTodo);
   });
+});
