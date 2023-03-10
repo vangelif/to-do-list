@@ -6,4 +6,4 @@ const clearAllCompleted = (tasks) => {
   return remainingTasks;
 };
 
-export default clearAllCompleted;
+module.exports = clearAllCompleted;
