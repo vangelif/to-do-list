@@ -6,4 +6,4 @@ const deleteFunction = (todos, index) => {
   return removeTasks;
 };
 
-export default deleteFunction;
+module.exports = deleteFunction;

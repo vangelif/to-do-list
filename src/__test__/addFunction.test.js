@@ -12,9 +12,9 @@ const taskAdded = [
 ];
 
 describe('To add a task', () => {
-    test('Add a newtask', () => {
-      expect(
-        addTodoTask(preTask, 'Laundry'),
-      ).toEqual(taskAdded);
-    });
+  test('Add a newtask', () => {
+    expect(
+      addTodoTask(preTask, 'Laundry'),
+    ).toEqual(taskAdded);
   });
+});
