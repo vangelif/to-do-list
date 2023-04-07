@@ -5,6 +5,8 @@ import {
   addItemBtn,
   syncBtn,
   eraseAllBtn,
+  todoListItems,
+  todoText,
 } from './variables.js';
 
 let todos = [];
@@ -20,7 +22,7 @@ const display = () => {
     <input class='tick' type='checkbox' data-set='${element.index}' ${
       element.completed ? 'checked' : ''
     }>
-    <p>${element.description}</p>
+    <p class="todo-text">${element.description}</p>
     <span class="trash">
       <i id='${element.index}' class='fa-solid fa-trash-can'></i>
     </span>
@@ -45,6 +47,7 @@ const display = () => {
     }
   });
 };
+console.log(todoListItems);
 document.addEventListener('DOMContentLoaded', () => {
   display();
 });
@@ -71,8 +74,9 @@ addItemBtn.addEventListener('click', (e) => {
 
   itemValue.value = '';
   display();
+  console.log(todoListItems);
 });
-
+console.log(todoListItems);
 document.addEventListener('keypress', (e) => {
   // console.log('pressed');
   if (e.key === 'Enter') {
@@ -94,7 +98,7 @@ document.addEventListener('keypress', (e) => {
     display();
   }
 });
-
+console.log(todoListItems);
 // remove function which updates the index
 const remove = (index) => {
   const removeTasks = todos.filter((element) => element.index !== index);
@@ -113,7 +117,7 @@ itemsDisplay.addEventListener('click', (e) => {
     remove(index);
   }
 });
-
+console.log(todoListItems);
 // clear all completed tasks
 const eraseAll = () => {
   const task = JSON.parse(localStorage.getItem('storage-task')) || [];
@@ -129,38 +133,44 @@ eraseAllBtn.addEventListener('click', () => {
 
 // toggles completion status and updates storage
 document.addEventListener('change', completion);
+todoListItems.forEach((item) => {
+  console.log(item);
+  item.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    console.log('dragging....');
+  });
+});
+// const dragStart = (event) => {
+//   const task = event.target.closest('.todo-el');
+//   task.classList.add('dragging');
+//   event.dataTransfer.setData('text/plain', task.dataset.index);
+// };
 
-const dragStart = (event) => {
-  const task = event.target.closest('.todo-el');
-  task.classList.add('dragging');
-  event.dataTransfer.setData('text/plain', task.dataset.index);
-};
+// const dragOver = (event) => {
+//   event.preventDefault();
+//   const task = event.target.closest('.todo-el');
+//   task.classList.add('dragover');
+// };
 
-const dragOver = (event) => {
-  event.preventDefault();
-  const task = event.target.closest('.todo-el');
-  task.classList.add('dragover');
-};
+// const dragDrop = (event) => {
+//   event.preventDefault();
+//   const sourceIndex = event.dataTransfer.getData('text/plain');
+//   const targetIndex = event.target.closest('.todo-el').dataset.index;
+//   const sourceTask = todos.find((task) => task.index === sourceIndex);
+//   const targetTask = todos.find((task) => task.index === targetIndex);
+//   const sourceOrder = sourceTask.index;
+//   sourceTask.index = targetTask.index;
+//   targetTask.index = sourceOrder;
+//   localStorage.setItem('storage-task', JSON.stringify(todos));
+//   display();
+// };
 
-const dragDrop = (event) => {
-  event.preventDefault();
-  const sourceIndex = event.dataTransfer.getData('text/plain');
-  const targetIndex = event.target.closest('.todo-el').dataset.index;
-  const sourceTask = todos.find((task) => task.index === sourceIndex);
-  const targetTask = todos.find((task) => task.index === targetIndex);
-  const sourceOrder = sourceTask.index;
-  sourceTask.index = targetTask.index;
-  targetTask.index = sourceOrder;
-  localStorage.setItem('storage-task', JSON.stringify(todos));
-  display();
-};
+// const dragEnd = (event) => {
+//   const task = event.target.closest('.todo-el');
+//   task.classList.remove('dragging', 'dragover');
+// };
 
-const dragEnd = (event) => {
-  const task = event.target.closest('.todo-el');
-  task.classList.remove('dragging', 'dragover');
-};
-
-itemsDisplay.addEventListener('dragstart', dragStart);
-itemsDisplay.addEventListener('dragover', dragOver);
-itemsDisplay.addEventListener('drop', dragDrop);
-itemsDisplay.addEventListener('dragend', dragEnd);
+// itemsDisplay.addEventListener('dragstart', dragStart);
+// itemsDisplay.addEventListener('dragover', dragOver);
+// itemsDisplay.addEventListener('drop', dragDrop);
+// itemsDisplay.addEventListener('dragend', dragEnd);
