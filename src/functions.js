@@ -18,10 +18,10 @@ const display = () => {
     task.draggable = true;
     task.innerHTML = `
     <input class='tick' type='checkbox' data-set='${element.index}' ${
-  element.completed ? 'checked' : ''
-}>
+      element.completed ? 'checked' : ''
+    }>
     <p>${element.description}</p>
-    <span>
+    <span class="trash">
       <i id='${element.index}' class='fa-solid fa-trash-can'></i>
     </span>
     `;
@@ -71,6 +71,28 @@ addItemBtn.addEventListener('click', (e) => {
 
   itemValue.value = '';
   display();
+});
+
+document.addEventListener('keypress', (e) => {
+  // console.log('pressed');
+  if (e.key === 'Enter') {
+    // console.log('enter pressed');
+    e.preventDefault();
+    if (itemValue.value === '') return;
+    todos = JSON.parse(localStorage.getItem('storage-task')) || [];
+
+    const todoObj = {
+      completed: false,
+      description: itemValue.value,
+      index: todos.length + 1,
+    };
+
+    todos.push(todoObj);
+    localStorage.setItem('storage-task', JSON.stringify(todos));
+
+    itemValue.value = '';
+    display();
+  }
 });
 
 // remove function which updates the index
