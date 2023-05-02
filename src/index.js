@@ -16,6 +16,11 @@ const todos = [
     completed: false,
     index: 1,
   },
+  {
+    description: 'dissolve rust',
+    completed: false,
+    index: 4,
+  },
 ];
 
 const todoList = () => {
@@ -38,6 +43,7 @@ const todoList = () => {
     }
   });
 };
+
 document.addEventListener('DOMContentLoaded', () => {
   todoList();
 });
