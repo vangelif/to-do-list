@@ -115,7 +115,9 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\r\n\r\nconst todos = [\r\n  {\r\n    description: 'mopping',\r\n    completed: true,\r\n    index: 3,\r\n  },\r\n  {\r\n    description: 'clean windows',\r\n    completed: true,\r\n    index: 2,\r\n  },\r\n  {\r\n    description: 'laundry',\r\n    completed: false,\r\n    index: 1,\r\n  },\r\n];\r\n\r\nconst todoList = () => {\r\n  const container = document.getElementById('container');\r\n  todos.sort((a, b) => a.index - b.index);\r\n  for (let i = 0; i < todos.length; i += 1) {\r\n    const task = document.createElement('div');\r\n    task.classList.add('todo-el');\r\n    task.innerHTML = `\r\n    <input type='checkbox'>\r\n    <p>${todos[i].description}</p>\r\n    `;\r\n    container.appendChild(task);\r\n  }\r\n\r\n  container.addEventListener('change', (event) => {\r\n    if (event.target.type === 'checkbox') {\r\n      const task = event.target.closest('.todo-el');\r\n      task.classList.toggle('completed');\r\n    }\r\n  });\r\n};\r\ndocument.addEventListener('DOMContentLoaded', () => {\r\n  todoList();\r\n});\r\n\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
+
 
 /***/ })
 

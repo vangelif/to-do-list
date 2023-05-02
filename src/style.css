@@ -3,7 +3,9 @@ body {
   font-size: 22px;
   padding: 0;
   margin: 0;
+
   background-color: lightgoldenrodyellow;
+
 }
 
 .box {
@@ -12,14 +14,22 @@ body {
   padding-bottom: 3%;
   display: flex;
   flex-direction: column;
+
   gap: 3rem;
   border: 7px solid goldenrod;
   background-color: lightblue;
   border-radius: 10px;
+
 }
 
 .box span > i {
   font-size: 20px;
+  margin: 2%;
+  cursor: pointer;
+}
+
+.insert-form {
+  margin: 2%;
 }
 
 .insert-form > input {
@@ -33,10 +43,12 @@ body {
 .insert-form > button {
   width: 5%;
   height: 125%;
+
   font-size: 15px;
   padding: 1% 1%;
   background-color: lightsalmon;
   border-radius: 10px;
+
   cursor: pointer;
 }
 
@@ -48,13 +60,15 @@ body {
   width: 100%;
 }
 
+
 .todo-el input[type='checkbox'] {
   transform: scale(2.5);
+
   cursor: pointer;
 }
 
 .todo-el p {
-  width: 15%;
+  width: 50%;
   text-align: left;
 }
 
@@ -75,10 +89,12 @@ body {
   margin: 0;
   padding: 2% 30%;
   font-size: 20px;
+
   border-radius: 10px;
   cursor: pointer;
 }
 
 .eraser > button:hover {
   background-color: azure;
+
 }
