@@ -21,7 +21,7 @@
 
 # 📖 [TO-DO LIST] <a name="about-project"></a>
 
-**TO-DO LIST** is a project that we are applying our knowledge on Javascript to showcase how webpack can simplify our future projects. 
+**TO-DO LIST** is a project that we are applying our knowledge on Javascript to showcase how webpack can simplify our future projects.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -30,33 +30,33 @@
 ### Tech Stack <a name="tech-stack"></a>
 
 <details>
-  <summary>Client</summary>
+  <summary>Markup Language</summary>
   <ul>
-    <li><a href="">HTML</a></li>
+    <li><a href="https://html.spec.whatwg.org/">HTML</a></li>
   </ul>
 </details>
 
 <details>
-  <summary>Graphs</summary>
+  <summary>Style Sheet Language</summary>
   <ul>
-    <li><a href="">CCS</a></li>
+    <li><a href="https://www.w3.org/TR/CSS/#css">CCS</a></li>
   </ul>
 </details>
 
 <details>
-<summary>Server</summary>
+<summary>Scipting Language</summary>
   <ul>
-    <li><a href="">JAVASCRIPT</a></li>
+    <li><a href="https://www.javascript.com/">JAVASCRIPT</a></li>
   </ul>
 </details>
 
 ### Key Features <a name="key-features"></a>
 
-- **[Use of Webpack loaders, plugins and devserver]** 
+- **[Use of Webpack loaders, plugins and devserver]**
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- <a href="#">Check out the live demo</a> 
+- <a href="#">Check out the live demo</a>
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -149,11 +149,11 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [Insert popup windows] 
+- [Insert popup windows]
 
 ## 🤝 Contributing <a name="contributing"></a>
 
-Contributions, issues, and feature requests are welcome! Feel free to come in touch with the author and arrange a meeting and make your contributions truly valuable. 
+Contributions, <a href="https://github.com/vangelif/to-do-list/issues/new">issues, and feature requests are welcome</a>! Feel free to come in touch with the author and arrange a meeting and make your contributions truly valuable.
 
 ## ⭐️ Show your support <a name="support"></a>
 
@@ -163,8 +163,6 @@ As this is one of the first projects of the author, please be kind enough and sh
 
 For this project many hours have been invested. For that reason, I would like to thank all my family that supported me in this long journey.
 
-  ## 📝 License <a name="license"></a>
+## 📝 License <a name="license"></a>
 
 This project is <a href="https://github.com/vangelif/Portfolio/blob/popup-window/license.md">MIT licensed</a>.
-
-
