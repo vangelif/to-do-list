@@ -1,4 +1,5 @@
 const addTodoTask = (todos, itemValue) => {
+  console.log('123')
   const todoObj = {
     completed: false,
     itemValue,
@@ -8,4 +9,5 @@ const addTodoTask = (todos, itemValue) => {
   return todos;
 };
 
-module.exports = addTodoTask;
+// module.exports = addTodoTask;
+export default addTodoTask;

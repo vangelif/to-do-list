@@ -52,6 +52,7 @@ const display = () => {
 };
 
 addItemBtn.addEventListener('click', (e) => {
+  console.log('1');
   e.preventDefault();
   addTodoTask(todos, itemValue.value);
   display();
@@ -59,6 +60,8 @@ addItemBtn.addEventListener('click', (e) => {
 });
 
 addItemBtn.addEventListener('Enter', (e) => {
+  console.log('2');
+
   e.preventDefault();
   addTodoTask(todos, itemValue.value);
   display();
@@ -72,6 +75,8 @@ window.removeTask = (index) => {
 };
 
 eraseAllBtn.addEventListener('click', () => {
+  console.log('A');
+
   todos = clearAllCompleted(todos);
   saveToStorage(todos);
   display();
