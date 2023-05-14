@@ -1,4 +1,4 @@
-import './style.css';
+import "./style.scss";
 import deleteFunction from './modules/deleteFunction.js';
 import { getFromStorage, saveToStorage } from './modules/localStorage.js';
 import addTodoTask from './modules/addFunction.js';

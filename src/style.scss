@@ -1,0 +1,81 @@
+$color-pink: lightpink;
+$color-yellow: lightgoldenrodyellow;
+$color-coral: lightcoral;
+$color-blue: lightskyblue;
+$font-size-large: 24px;
+$font-size-medium: 16px;
+
+body {
+  text-align: center;
+  font-size: $font-size-large;
+  padding: 0;
+  margin: 0;
+  background-color: $color-pink;
+  font-family: Arial, Helvetica, sans-serif;
+
+  .box {
+    margin: 12% 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: $color-yellow;
+    font-weight: 800;
+    border: 5px solid $color-coral;
+    border-radius: 3px;
+
+    .insert-form {
+      margin: 2%;
+
+      input {
+        width: 30%;
+        height: 100%;
+        font-size: $font-size-medium;
+        padding-inline: 5%;
+      }
+
+      button {
+        width: 15%;
+        height: 125%;
+        font-size: $font-size-large;
+        margin: 0;
+        cursor: pointer;
+        border: 3px solid $color-blue;
+        border-radius: 10px;
+
+        .fa-sharp {
+          padding-inline: 5%;
+        }
+      }
+    }
+
+    .todo-el {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+
+      input[type="checkbox"] {
+        transform: scale(1.8);
+        cursor: pointer;
+      }
+
+      p {
+        width: 50%;
+        text-align: left;
+      }
+    }
+
+    .eraser {
+      margin: 2% 2%;
+
+      button {
+        padding: 2% 30%;
+        font-size: $font-size-large;
+        cursor: pointer;
+        font-weight: 600;
+        border: 3px solid $color-blue;
+        border-radius: 10px;
+      }
+    }
+  }
+}
