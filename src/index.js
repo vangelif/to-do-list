@@ -3,8 +3,8 @@ import deleteFunction from './modules/deleteFunction.js';
 import { getFromStorage, saveToStorage } from './modules/localStorage.js';
 import addTodoTask from './modules/addFunction.js';
 import editNewTodos from './modules/editFunction.js';
-import completedTasks from './modules/updates.js';
 import clearAllCompleted from './modules/clearAllCompleted.js';
+import completedTasks from './modules/updates.js';
 
 const itemValue = document.getElementById('insertTask');
 const itemsDisplay = document.getElementById('container');
@@ -13,13 +13,36 @@ const eraseAllBtn = document.getElementById('erase');
 
 let todos = getFromStorage();
 
-const display = () => {
-  itemsDisplay.innerHTML = '';
-  todos.forEach((element, index) => {
-    const task = document.createElement('div');
-    task.classList.add('todo-el');
-    task.draggable = true;
-    task.innerHTML = `
+const addBlurEvent = (taskName, index) => {
+  taskName.addEventListener('blur', () => {
+    const editTaskContent = taskName.textContent.trim();
+    todos = editNewTodos(todos, index, editTaskContent);
+    saveToStorage(todos);
+  });
+};
+
+const addKeyDownEvent = (taskName) => {
+  taskName.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      taskName.blur();
+    }
+  });
+};
+
+const addCheckboxChangeEvent = (checkbox, index) => {
+  checkbox.addEventListener('change', () => {
+    todos = completedTasks(index, todos);
+    saveToStorage(todos);
+    display();
+  });
+};
+
+const createTaskElement = (element, index) => {
+  const task = document.createElement('div');
+  task.classList.add('todo-el');
+  task.draggable = true;
+  task.innerHTML = `
     <input class='tick' type='checkbox' id="tick" data-set='${element.index}' ${
   element.completed ? 'checked' : ''
 }>
@@ -27,26 +50,19 @@ const display = () => {
     <span class="trash" onclick="removeTask(${index})"><i class="fa-solid fa-trash-can"></i>
     </span>
     `;
-    itemsDisplay.appendChild(task);
-    const taskName = task.querySelector('#task-name');
-    taskName.addEventListener('blur', () => {
-      const editTaskContent = taskName.textContent.trim();
-      todos = editNewTodos(todos, index, editTaskContent);
-      saveToStorage(todos);
-    });
-    taskName.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter') {
-        event.preventDefault();
-        taskName.blur();
-      }
-    });
+  const taskName = task.querySelector('#task-name');
+  addBlurEvent(taskName, index);
+  addKeyDownEvent(taskName);
+  const checkbox = task.querySelector('#tick');
+  addCheckboxChangeEvent(checkbox, index);
+  return task;
+};
 
-    const checkbox = task.querySelector('#tick');
-    checkbox.addEventListener('change', () => {
-      todos = completedTasks(index, todos);
-      saveToStorage(todos);
-      display();
-    });
+const display = () => {
+  itemsDisplay.innerHTML = '';
+  todos.forEach((element, index) => {
+    const task = createTaskElement(element, index);
+    itemsDisplay.appendChild(task);
   });
   saveToStorage(todos);
 };
@@ -75,11 +91,13 @@ window.removeTask = (index) => {
 };
 
 eraseAllBtn.addEventListener('click', () => {
-  console.log('A');
+  console.log('button erase all');
 
   todos = clearAllCompleted(todos);
   saveToStorage(todos);
   display();
 });
+
+// export { addBlurEvent, addCheckboxChangeEvent, addKeyDownEvent };
 
 display();

@@ -1,4 +1,6 @@
 const completedTasks = (index, tasks) => {
+  console.log('completed tasks');
+
   const updatedCheckbox = [...tasks];
   updatedCheckbox[index] = {
     ...updatedCheckbox[index],

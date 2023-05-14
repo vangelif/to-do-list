@@ -1,5 +1,5 @@
 const addTodoTask = (todos, itemValue) => {
-  console.log('123')
+  console.log('added');
   const todoObj = {
     completed: false,
     itemValue,
